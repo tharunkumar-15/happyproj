@@ -1,4 +1,4 @@
 # happyproj
 this is for git training
 
-let us see usage of github
+Let us see usage of github
