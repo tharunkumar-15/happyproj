@@ -1,0 +1,397 @@
+java practice:
+
+
+
+1.https://www.hackerearth.com/problem/algorithm/karan-and-even-numbers-reloaded/
+
+method 1::
+Scanner sc  = new Scanner(System.in);
+       
+        String value = sc.nextLine(); //
+        // System.out.println(value);
+ 
+        String[] str =  value.split(" ");
+ 
+ 
+        int n = str.length;
+ 
+        for(int i =0 ; i < n;i++){
+            long temp = Long.parseLong(str[i]);
+ 
+            if(temp % 2 == 0){
+                System.out.println(temp);
+            }
+ 
+        }
+       
+ 
+    }
+}
+
+
+method 2 ::
+
+import java.util.*;
+import java.lang.*;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception 
+    {
+       
+        Scanner s = new Scanner(System.in);
+        while(s.hasNext())
+        {
+            long n= s.nextLong();
+            if(n==-1)
+            {
+                break;
+            }
+            else if(n%2==0)
+                {
+                    System.out.println(n);
+                }
+         }       
+    }
+}
+
+
+
+
+
+https://www.hackerrank.com/challenges/java-exception-handling/problem
+
+2.  import java.util.Scanner;
+
+class MyCalculator {
+
+    /*
+
+    * Create the method long power(int, int) here.
+
+    */
+
+    public long power(long n, long p) throws Exception{
+
+       if (n<0 || p<0)
+
+       {
+
+           throw new Exception("n or p should not be negative.");
+
+       }
+
+       else if (n<0 && p<0)
+
+       {
+
+           throw new Exception("n or p should not be negative.");
+
+       }
+
+       else if(n==0 && p==0)
+
+       {
+
+           throw new Exception("n and p should not be zero.");
+
+       }
+
+       else
+
+       {
+
+           return (long)Math.pow(n,p);
+
+       }
+
+    }
+
+}
+ 
+public class Solution {
+
+    public static final MyCalculator my_calculator = new MyCalculator();
+
+    public static final Scanner in = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        while (in .hasNextInt()) {
+
+            int n = in .nextInt();
+
+            int p = in .nextInt();
+
+            try {
+
+                System.out.println(my_calculator.power(n, p));
+
+            } catch (Exception e) {
+
+                System.out.println(e);
+
+            }
+
+        }
+
+    }
+
+}
+ 
+
+
+3.https://www.hackerrank.com/challenges/prime-checker/problem
+[Tuesday 12:06] Chaitra J A
+3. import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.lang.reflect.*;
+ 
+import static java.lang.System.*;
+class Prime{
+    public void checkPrime(int... arr) {
+        for (int i=0;i<arr.length;i++) {
+            if (isPrime(arr[i])) {
+                System.out.print(arr[i]+" ");
+            }
+        }
+        System.out.println();
+    }
+    public static boolean isPrime(int num) {
+        if (num<= 1) {
+            return false;
+        }
+        for (int i = 2; i <=num/2; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+ 
+}
+ 
+
+
+4.https://www.hackerrank.com/challenges/java-md5/problem
+
+method 1::
+[Tuesday 12:05] Chaitra J A
+4. import java.util.*;
+ 
+class Arrayy {
+
+    public static void result(int[] arr, int n, int k)
+
+    {
+
+        int sum=0;
+
+        int temp=0;
+
+        for (int i=0;i<arr.length-1;i++)
+
+        {
+
+           sum = sum + Math.abs(arr[i]-arr[i+1]);
+
+        }
+
+        temp= (Math.abs(arr[0]-arr[n-1]));
+
+        sum=sum+temp;
+
+        System.out.println(sum);
+
+    } 
+
+    public static void main(String args[] ) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+
+       int n = sc.nextInt();
+
+       int k = sc.nextInt();
+
+       int[] arr = new int[n];
+
+       for(int i=0; i<arr.length; i++)
+
+       {
+
+        arr[i]=sc.nextInt();
+
+       }
+
+        result(arr,n,k);
+
+    }
+
+}
+
+ 
+
+method 2:: 
+[Yesterday 14:20] Balaji K G (HM0012912)
+ try {
+            // Create MD5 Hash
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(input.getBytes());
+            byte[] digest = md.digest();
+            
+            // Convert byte array into signum representation
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+ 
+            // Print the result
+            System.out.println(sb.toString());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+ 
+
+method3::
+[Yesterday 15:06] Anup Pukale
+public class Solution {
+ 
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc= new Scanner(System.in);
+        String str= sc.next();
+        MessageDigest md =MessageDigest.getInstance("MD5");
+        md.update(str.getBytes());
+        byte[] digest=md.digest();
+        String hashedname=DatatypeConverter.printHexBinary(digest).toLowerCase();
+        System.out.print(hashedname);
+    }
+}
+ 
+
+
+
+
+
+
+count pair chaitu soln
+
+
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       
+        Scanner sc = new Scanner(System.in);
+
+        long t = sc.nextLong();
+
+        while(t-- > 0){
+            int n = sc.nextInt();
+
+            long k = sc.nextLong();
+
+            long p = sc.nextLong();
+
+            long arr[] = new long[n];
+
+            for(int i = 0; i < n;i++){
+
+                arr[i] = sc.nextLong();
+                
+            }
+            int count = 0 ;
+
+            for(int i = 0 ; i < n-1 ;i++){
+                long sq1 = arr[i] * arr[i];
+                for(int j = i +1; j < n; j++){
+                    long sq2 = arr[j] * arr[j];
+                    if(((sq1+sq2+(arr[i] * arr[j])) % p) == k){
+                        count++;
+                    }
+
+
+                }
+            }
+            System.out.println(count);
+
+        }
+
+        
+
+
+        }
+    }
+
+
+ some program:
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        while (t-- > 0) {
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
+            int p = scanner.nextInt();
+
+    int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = scanner.nextInt() % p;
+            }
+
+            Arrays.sort(arr);
+
+long ans = 0;           
+ List<Pair> vec = new ArrayList<>();
+            int i = 0;
+            while (i < n) {
+                int j = i, cnt = 0;
+                while (j < n && arr[j] == arr[i]) {
+                    cnt++;
+                    j++;
+   }
+                int x = arr[i];
+                if ((3 * x * x % p) == k) {
+                    ans += cnt * (cnt - 1) / 2;
+ }
+                int y = (((x * x % p) * x % p - k * x % p) % p + p) % p;
+                vec.add(new Pair(y, cnt));
+                i = j;
+            }
+  Collections.sort(vec, new Comparator<Pair>() {
+                @Override
+                public int compare(Pair o1, Pair o2) {
+                    return o1.first - o2.first;
+ }
+            });
+            
+            i = 0;
+            while (i < vec.size()) {
+                int j = i;
+                long lin = 0, sqr = 0;
+                while (j < vec.size() && vec.get(i).first == vec.get(j).first) {
+                    lin += vec.get(j).second;
+sqr += vec.get(j).second * vec.get(j).second;
+                    j++;
+  }
+                ans += (lin * lin - sqr) / 2;
+                i = j;
+            }
+            System.out.println(ans);
+}
+        scanner.close();
+    }
+static class Pair {
+        int first;
+        int second;
+         Pair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
+}
+ 
